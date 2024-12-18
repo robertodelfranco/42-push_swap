@@ -6,25 +6,11 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:43:46 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/18 17:11:52 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:58:32 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../current_lib/Includes/libft.h"
-#include "../current_lib/Includes/ft_printf_bonus.h"
-#include "../current_lib/Includes/get_next_line_bonus.h"
-
-void	ft_rotate(t_list **stack)
-{
-	t_list	*start;
-	t_list	*last;
-
-	start = *stack;
-	last = ft_lstlast(*stack);
-	*stack = start->next;
-	last->next = start;
-	start->next = NULL;
-}
+#include "push_swap.h"
 
 void	ft_swap(t_list **stack)
 {
@@ -50,4 +36,30 @@ void ft_push(t_list **push, t_list **stack)
 	*stack = stack_start->next;
 	stack_start->next = push_start;
 	*push = stack_start;
+}
+
+void	ft_rotate(t_list **stack)
+{
+	t_list	*start;
+	t_list	*last;
+
+	start = *stack;
+	last = ft_lstlast(*stack);
+	*stack = start->next;
+	last->next = start;
+	start->next = NULL;
+}
+
+void	ft_reverse(t_list **stack)
+{
+	t_list	*second_to_last;
+	t_list	*start;
+	t_list	*last;
+
+	start = *stack;
+	second_to_last = ft_lstsecond_to_last(*stack);
+	last = second_to_last->next;
+	second_to_last->next = NULL;
+	last->next = start;
+	*stack = last;
 }

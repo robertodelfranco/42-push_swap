@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_rotate.c                                        :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 14:30:16 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/18 17:57:54 by rdel-fra         ###   ########.fr       */
+/*   Created: 2024/12/18 18:00:49 by rdel-fra          #+#    #+#             */
+/*   Updated: 2024/12/18 18:02:12 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rotate_a(t_list **stack_a)
+void	ft_free(char **ptr_matrix, int j)
 {
-	ft_printf("ra\n");
-	ft_rotate(&stack_a);
-}
+	int	i;
 
-void	ft_rotate_b(t_list **stack_b)
-{
-	ft_printf("rb\n");
-	ft_rotate(&stack_b);
-}
-
-void	ft_rotate_ss(t_list **stack_a, t_list **stack_b)
-{
-	ft_rotate_a(&stack_a);
-	ft_rotate_b(&stack_b);
+	i = 0;
+	while (i < j)
+	{
+		free(ptr_matrix[i]);
+		i++;
+	}
+	free(ptr_matrix);
 }

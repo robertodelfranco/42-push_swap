@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_rotate.c                                        :+:      :+:    :+:   */
+/*   op_reverse.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 14:30:16 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/18 17:57:54 by rdel-fra         ###   ########.fr       */
+/*   Created: 2024/12/18 17:36:18 by rdel-fra          #+#    #+#             */
+/*   Updated: 2024/12/18 17:57:53 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rotate_a(t_list **stack_a)
+void	ft_reverse_a(t_list **stack_a)
 {
-	ft_printf("ra\n");
-	ft_rotate(&stack_a);
+	ft_printf("rra\n");
+	ft_reverse(&stack_a);
 }
 
-void	ft_rotate_b(t_list **stack_b)
+void	ft_reverse_b(t_list **stack_b)
 {
-	ft_printf("rb\n");
-	ft_rotate(&stack_b);
+	ft_printf("rrb\n");
+	ft_reverse(&stack_b);
 }
 
-void	ft_rotate_ss(t_list **stack_a, t_list **stack_b)
+void	ft_reverse_ss(t_list **stack_a, t_list **stack_b)
 {
-	ft_rotate_a(&stack_a);
-	ft_rotate_b(&stack_b);
+	ft_reverse_a(&stack_a);
+	ft_reverse_b(&stack_b);
 }

@@ -2,6 +2,7 @@
 	"files.associations": {
 		"*.ejs": "html",
 		"libft.h": "c",
-		"get_next_line_bonus.h": "c"
+		"get_next_line_bonus.h": "c",
+		"push_swap.h": "c"
 	}
 }

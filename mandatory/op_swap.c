@@ -6,13 +6,11 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:42:58 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/18 15:55:34 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:57:55 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../current_lib/Includes/libft.h"
-#include "../current_lib/Includes/ft_printf_bonus.h"
-#include "../current_lib/Includes/get_next_line_bonus.h"
+#include "push_swap.h"
 
 void	ft_swap_a(t_list **stack_a)
 {
