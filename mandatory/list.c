@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 13:52:04 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/19 15:13:08 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:39:49 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ t_list	*ft_create_list(int count, char **v, int ent)
 	}
 	if (ent == 1)
 		ft_free(v, count);
-	if (!ft_check_duplicate(stack_a))
-		return (ft_free_list(stack_a), ft_printf("Error\n"), NULL);
+	if (!ft_check_duplicate(&stack_a))
+		return (ft_clear_list(&stack_a), ft_printf("Error\n"), NULL);
 	return (stack_a);
 }
 

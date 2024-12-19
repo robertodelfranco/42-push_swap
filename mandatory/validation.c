@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:58:59 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/19 15:11:24 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:38:42 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,24 @@ int	ft_check_numbers(char **str)
 	return (1);
 }
 
-ft_check_duplicate();
+int	ft_check_duplicate(t_list **stack)
+{
+	t_list	*current;
+	t_list	*nav;
+	int		value;
+
+	current = *stack;
+	while (current != NULL)
+	{
+		value = current->nb;
+		nav = current->next;
+		while (nav != NULL)
+		{
+			if (nav->nb == value)
+				return (0);
+			nav = nav->next;
+		}
+		current = current->next;
+	}
+	return (1);
+}
