@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:54:12 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/18 18:09:51 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/12/19 15:06:43 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_rotate_b(t_list **stack_b);
 void	ft_rotate_ss(t_list **stack_a, t_list **stack_b);
 
 void	ft_push(t_list **push, t_list **stack);
-void	ft_push_a(t_list **stack_a, t_list **stack_b);
+void	ft_push_a(t_list **stack_b, t_list **stack_a);
 void	ft_push_b(t_list **stack_a, t_list **stack_b);
 
 void	ft_swap(t_list **stack);
@@ -41,6 +41,6 @@ void	ft_free(char **ptr_matrix, int j);
 int		ft_validate(int *c, char **v, int ent);
 int		ft_check_numbers(char **str);
 
-t_list	*ft_create_list(int count, char **v);
+t_list	*ft_create_list(int count, char **v, int ent);
 
 #endif

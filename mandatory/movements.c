@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:43:46 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/18 17:58:32 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/12/19 14:40:08 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void ft_push(t_list **push, t_list **stack)
 
 	push_start = *push;
 	stack_start = *stack;
-	*stack = stack_start->next;
-	stack_start->next = push_start;
-	*push = stack_start;
+	*push = push_start->next;
+	push_start->next = stack_start;
+	*stack = push_start;
 }
 
 void	ft_rotate(t_list **stack)

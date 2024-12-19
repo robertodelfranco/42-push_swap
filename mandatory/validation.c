@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:58:59 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/18 17:59:56 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/12/19 15:11:24 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_validate(int *c, char **v, int ent)
 		return (ft_printf("Error\n"), 0);
 	if (!ft_check_numbers(v))
 		return (ft_printf("Error\n"), 0);
-	start = ft_create_list(count, v);
+	start = ft_create_list(count, v, ent);
 	if (!start)
 		return (ft_printf("start null"), 0);
 	return (1);
@@ -53,3 +53,5 @@ int	ft_check_numbers(char **str)
 	}
 	return (1);
 }
+
+ft_check_duplicate();
