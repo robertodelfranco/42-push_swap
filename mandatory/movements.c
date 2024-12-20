@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:43:46 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/19 14:40:08 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:59:28 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_swap(t_list **stack)
 	*stack = second;
 }
 
-void ft_push(t_list **push, t_list **stack)
+void	ft_push(t_list **push, t_list **stack)
 {
 	t_list	*push_start;
 	t_list	*stack_start;

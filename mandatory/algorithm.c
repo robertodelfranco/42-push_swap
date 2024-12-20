@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 18:00:49 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/20 15:59:22 by rdel-fra         ###   ########.fr       */
+/*   Created: 2024/12/20 16:18:23 by rdel-fra          #+#    #+#             */
+/*   Updated: 2024/12/20 16:20:48 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_free(char **ptr_matrix, int j)
+void	ft_call_algorithm(t_list **stack, int counter)
 {
-	int	i;
-
-	i = 0;
-	while (i < j)
-	{
-		free(ptr_matrix[i]);
-		i++;
-	}
-	free(ptr_matrix);
-}
-
-void	ft_clear_list(t_list **lst)
-{
-	t_list	*nav;
-
-	nav = NULL;
-	while (*lst != NULL)
-	{
-		nav = (*lst)->next;
-		free(*lst);
-		*lst = nav;
-	}
+	if (counter < 4)
+		ft_manualsort(stack, counter);
+	else if (counter >= 4 && counter <= 100)
+		ft_quicksort(stack, counter);
+	else
+		ft_radixsort(stack, counter);
 }
