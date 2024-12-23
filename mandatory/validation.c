@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:58:59 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/20 16:18:58 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/12/23 18:25:42 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,15 @@ int	ft_validate(int *c, char **v, int ent)
 	if (!start)
 		return (0);
 	ft_call_algorithm(&start, count);
+	t_list *nav1;
+	nav1 = start;
+	ft_printf("FINAL: ");
+	while (nav1)
+	{
+		ft_printf("%d ", nav1->nb);
+		nav1 = nav1->next;
+	}
+	ft_printf("\n");
 	return (1);
 }
 
@@ -83,12 +92,31 @@ int	ft_is_sorted(t_list **stack)
 {
 	t_list	*nav;
 
+	if (*stack == NULL || (*stack)->next == NULL)
+		return (1);
 	nav = *stack;
 	while (nav->next != NULL)
 	{
-		if (nav->next != NULL && nav->nb > nav->next->nb)
+		if (nav->nb > nav->next->nb)
 			return (0);
 		nav = nav->next;
+	}
+	return (1);
+}
+
+int	ft_reverse_sorted(t_list **stack)
+{
+	t_list	*nav;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return (1);
+	nav = *stack;
+	while (nav->next != NULL)
+	{
+		if (nav->nb < nav->next->nb)
+			return (0);
+		nav = nav->next;
+		ft_printf("nav->nb: %d\n", nav->nb);
 	}
 	return (1);
 }

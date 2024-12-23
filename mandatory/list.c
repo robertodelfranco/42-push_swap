@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 13:52:04 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/20 15:43:19 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/12/23 14:14:33 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,30 @@ t_list	*ft_create_list(int count, char **v, int ent)
 		return (ft_clear_list(&stack_a), ft_printf("Sorted\n"), NULL);
 	return (stack_a);
 }
+
+int	*ft_create_array(t_list **list, int count)
+{
+	int		*stack;
+	t_list	*nav;
+	int		i;
+
+	nav = *list;
+	stack = (int *)malloc(sizeof(int) * count);
+	i = 0;
+	while (nav != NULL)
+	{
+		stack[i] = nav->nb;
+		nav = nav->next;
+		i++;
+	}
+	return (stack);
+}
+
+
+// void	ft_order_list(t_list **stack_a)
+// {
+	
+// }
 
 	// ft_push_b(&stack_a, &stack_b);
 	// ft_push_b(&stack_a, &stack_b);

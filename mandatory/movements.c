@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:43:46 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/20 15:59:28 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2024/12/23 14:35:28 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,20 @@ void	ft_swap(t_list **stack)
 
 void	ft_push(t_list **push, t_list **stack)
 {
-	t_list	*push_start;
-	t_list	*stack_start;
+	t_list	*temp;
 
-	push_start = *push;
-	stack_start = *stack;
-	*push = push_start->next;
-	push_start->next = stack_start;
-	*stack = push_start;
+	temp = (*push)->next;
+	if (*stack != NULL)
+	{
+		(*push)->next = *stack;
+		*stack = *push;
+	}
+	else
+	{
+		*stack = *push;
+		(*stack)->next = NULL;
+	}
+	*push = temp;
 }
 
 void	ft_rotate(t_list **stack)

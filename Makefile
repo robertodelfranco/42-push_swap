@@ -8,6 +8,8 @@ LIB			=	$(LIBFT)/libft.a
 HEADERS		=	-I $(current_lib)/Includes
 
 SRCS		=	./mandatory/main.c \
+				./mandatory/algorithms.c \
+				./mandatory/algorithms_utils.c \
 				./mandatory/free.c \
 				./mandatory/list.c \
 				./mandatory/movements.c \
