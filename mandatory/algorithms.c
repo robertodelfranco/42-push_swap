@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 16:18:23 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/23 18:45:16 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:30:21 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_manualsort_a(t_list **stack, int c)
 			ft_swap_a(stack);
 		else if (c == 3)
 		{
-			if ((*stack)->nb > (*stack)->next->nb &&
+			if ((*stack)->nb > (*stack)->next->nb && \
 				(*stack)->nb > (*stack)->next->next->nb)
 				ft_rotate_a(stack);
 			else if ((*stack)->nb > (*stack)->next->nb)
@@ -52,7 +52,7 @@ void	ft_manualsort_b(t_list **stack, int c)
 			ft_swap_b(stack);
 		else if (c == 3)
 		{
-			if ((*stack)->nb < (*stack)->next->nb &&
+			if ((*stack)->nb < (*stack)->next->nb && \
 				(*stack)->nb < (*stack)->next->next->nb)
 				ft_rotate_b(stack);
 			else if ((*stack)->nb < (*stack)->next->nb)
@@ -60,7 +60,7 @@ void	ft_manualsort_b(t_list **stack, int c)
 			else
 				ft_reverse_b(stack);
 		}
-	}	
+	}
 }
 
 void	ft_bubblesort(int	*list, int c)
@@ -69,7 +69,7 @@ void	ft_bubblesort(int	*list, int c)
 	int	i;
 
 	i = 0;
-	while(i < (c - 1))
+	while (i < (c - 1))
 	{
 		if (list[i] > list[i + 1])
 		{
@@ -83,13 +83,12 @@ void	ft_bubblesort(int	*list, int c)
 	}
 }
 
-void	ft_quicksort(t_list **stack_a, t_list **stack_b, int size, t_counters *counter)
+void	ft_quicksort(t_list **stack_a, t_list **stack_b,
+		int size, t_counters *counter)
 {
 	int		pivot;
 	int		i;
 
-	if (size <= 3)
-		return (ft_manualsort_a(stack_a, size), ft_manualsort_b(stack_b, counter->count));
 	i = 0;
 	pivot = ft_find_pivot(stack_a, size);
 	while (i < size)
@@ -103,30 +102,11 @@ void	ft_quicksort(t_list **stack_a, t_list **stack_b, int size, t_counters *coun
 			ft_rotate_a(stack_a);
 		i++;
 	}
-	ft_quicksort(stack_a, stack_b, size - counter->count, counter);
-	ft_quicksort(stack_a, stack_b, counter->count, counter);
+	ft_manualsort_a(stack_a, size - counter->count);
+	ft_manualsort_b(stack_b, counter->count);
 	while (counter->count > 0)
 	{
 		ft_push_a(stack_b, stack_a);
 		counter->count -= 1;
 	}
 }
-
-	// t_list *nav1;
-	// nav1 = *stack_a;
-	// ft_printf("A: ");
-	// while (nav1)
-	// {
-	// 	ft_printf("%d ", nav1->nb);
-	// 	nav1 = nav1->next;
-	// }
-	// ft_printf("\n");
-	// t_list *nav;
-	// nav = *stack_b;
-	// ft_printf("B: ");
-	// while (nav)
-	// {
-	// 	ft_printf("%d ", nav->nb);
-	// 	nav = nav->next;
-	// }
-	// ft_printf("\n");

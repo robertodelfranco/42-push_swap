@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:06:03 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/23 17:28:28 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:27:23 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_find_pivot(t_list **list, int c)
 {
 	int		*array;
+	int		n;
 	int		i;
 
 	if (c == 1)
@@ -24,7 +25,9 @@ int	ft_find_pivot(t_list **list, int c)
 	i = 0;
 	while (i < (c / 2))
 		i++;
-	return (array[i]);
+	n = array[i];
+	free(array);
+	return (n);
 }
 
 int	ft_implement_rotate(t_list **stack_a, int pivot)
@@ -41,7 +44,7 @@ int	ft_implement_rotate(t_list **stack_a, int pivot)
 	return (1);
 }
 
-int ft_compare(int a, int b)
+int	ft_compare(int a, int b)
 {
 	if (a > b)
 		return (1);

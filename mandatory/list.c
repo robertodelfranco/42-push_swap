@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 13:52:04 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/23 14:14:33 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:26:00 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,9 @@ int	*ft_create_array(t_list **list, int count)
 	return (stack);
 }
 
-
 // void	ft_order_list(t_list **stack_a)
-// {
-	
+// {	
 // }
-
 	// ft_push_b(&stack_a, &stack_b);
 	// ft_push_b(&stack_a, &stack_b);
 	// ft_push_b(&stack_a, &stack_b);
