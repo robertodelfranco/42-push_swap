@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-void	ft_swap(t_list **stack)
+void	ft_swap(t_push **stack)
 {
-	t_list	*start;
-	t_list	*second;
+	t_push	*start;
+	t_push	*second;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
@@ -26,9 +26,9 @@ void	ft_swap(t_list **stack)
 	*stack = second;
 }
 
-void	ft_push(t_list **push, t_list **stack)
+void	ft_push(t_push **push, t_push **stack)
 {
-	t_list	*temp;
+	t_push	*temp;
 
 	temp = (*push)->next;
 	if (*stack != NULL)
@@ -44,26 +44,26 @@ void	ft_push(t_list **push, t_list **stack)
 	*push = temp;
 }
 
-void	ft_rotate(t_list **stack)
+void	ft_rotate(t_push **stack)
 {
-	t_list	*start;
-	t_list	*last;
+	t_push	*start;
+	t_push	*last;
 
 	start = *stack;
-	last = ft_lstlast(*stack);
+	last = ft_last(*stack);
 	*stack = start->next;
 	last->next = start;
 	start->next = NULL;
 }
 
-void	ft_reverse(t_list **stack)
+void	ft_reverse(t_push **stack)
 {
-	t_list	*second_to_last;
-	t_list	*start;
-	t_list	*last;
+	t_push	*second_to_last;
+	t_push	*start;
+	t_push	*last;
 
 	start = *stack;
-	second_to_last = ft_lstsecond_to_last(*stack);
+	second_to_last = ft_second_to_last(*stack);
 	last = second_to_last->next;
 	second_to_last->next = NULL;
 	last->next = start;

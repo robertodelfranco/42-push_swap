@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_push_a(t_list **stack_b, t_list **stack_a)
+void	ft_push_a(t_push **stack_b, t_push **stack_a)
 {
 	ft_printf("pa\n");
 	if (!stack_b || !(*stack_b))
@@ -20,7 +20,7 @@ void	ft_push_a(t_list **stack_b, t_list **stack_a)
 	ft_push(stack_b, stack_a);
 }
 
-void	ft_push_b(t_list **stack_a, t_list **stack_b)
+void	ft_push_b(t_push **stack_a, t_push **stack_b)
 {
 	ft_printf("pb\n");
 	if (!stack_a || !(*stack_a))

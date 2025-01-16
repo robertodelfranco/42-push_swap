@@ -12,19 +12,19 @@
 
 #include "push_swap.h"
 
-void	ft_swap_a(t_list **stack_a)
+void	ft_swap_a(t_push **stack_a)
 {
 	ft_printf("sa\n");
 	ft_swap(stack_a);
 }
 
-void	ft_swap_b(t_list **stack_b)
+void	ft_swap_b(t_push **stack_b)
 {
 	ft_printf("sb\n");
 	ft_swap(stack_b);
 }
 
-void	ft_swap_ss(t_list **stack_a, t_list **stack_b)
+void	ft_swap_ss(t_push **stack_a, t_push **stack_b)
 {
 	ft_swap_a(stack_a);
 	ft_swap_b(stack_b);

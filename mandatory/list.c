@@ -12,10 +12,13 @@
 
 #include "push_swap.h"
 
-t_list	*ft_create_list(int count, char **v, int ent)
+static t_push	*ft_newnode(int content);
+static void	ft_add_back(t_push **lst, t_push *new);
+
+t_push	*ft_create_list(int count, char **v, int ent)
 {
-	t_list	*new_node;
-	t_list	*stack_a;
+	t_push	*new_node;
+	t_push	*stack_a;
 	long	nb;
 	int		i;
 
@@ -26,8 +29,8 @@ t_list	*ft_create_list(int count, char **v, int ent)
 		nb = ft_atol(&v[i][0]);
 		if (nb > INT_MAX || nb < INT_MIN)
 			return (ft_clear_list(&stack_a), ft_printf("Error\n"), NULL);
-		new_node = ft_lstnew((int)nb);
-		ft_lstadd_back(&stack_a, new_node);
+		new_node = ft_newnode((int)nb);
+		ft_add_back(&stack_a, new_node);
 		i++;
 	}
 	if (ent == 1)
@@ -37,4 +40,63 @@ t_list	*ft_create_list(int count, char **v, int ent)
 	if (ft_is_sorted(&stack_a))
 		return (ft_clear_list(&stack_a), NULL);
 	return (stack_a);
+}
+
+static t_push	*ft_newnode(int content)
+{
+	t_push	*new_node;
+
+	new_node = (t_push *)malloc(sizeof(struct s_list));
+	if (!new_node)
+		return (NULL);
+	(*new_node).nb = content;
+	(*new_node).next = NULL;
+	return (new_node);
+}
+
+static void	ft_add_back(t_push **lst, t_push *new)
+{
+	t_push	*nav;
+
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	nav = *lst;
+	while ((*nav).next != NULL)
+		nav = (*nav).next;
+	(*nav).next = new;
+}
+
+t_push	*ft_second_to_last(t_push *lst)
+{
+	t_push	*nav;
+	int		i;
+
+	nav = lst;
+	i = ft_lstsize((t_list *)lst);
+	while (i > 2)
+	{
+		nav = (*nav).next;
+		i--;
+	}
+	return (nav);
+}
+
+t_push	*ft_last(t_push *lst)
+{
+	t_push	*nav;
+	int		i;
+
+	nav = lst;
+	i = ft_lstsize((t_list *)lst);
+	while (i > 1)
+	{
+		nav = (*nav).next;
+		i--;
+	}
+	return (nav);
 }

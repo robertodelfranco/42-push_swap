@@ -14,7 +14,7 @@
 
 int	ft_validate(int *c, char **v, int ent)
 {
-	t_list	*start;
+	t_push	*start;
 	int		count;
 
 	start = NULL;
@@ -58,10 +58,10 @@ int	ft_check_numbers(char **str)
 	return (1);
 }
 
-int	ft_check_duplicate(t_list **stack)
+int	ft_check_duplicate(t_push **stack)
 {
-	t_list	*current;
-	t_list	*nav;
+	t_push	*current;
+	t_push	*nav;
 	int		value;
 
 	current = *stack;
@@ -80,9 +80,9 @@ int	ft_check_duplicate(t_list **stack)
 	return (1);
 }
 
-int	ft_is_sorted(t_list **stack)
+int	ft_is_sorted(t_push **stack)
 {
-	t_list	*nav;
+	t_push	*nav;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return (1);
@@ -96,9 +96,9 @@ int	ft_is_sorted(t_list **stack)
 	return (1);
 }
 
-int	ft_reverse_sorted(t_list **stack)
+int	ft_reverse_sorted(t_push **stack)
 {
-	t_list	*nav;
+	t_push	*nav;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return (1);

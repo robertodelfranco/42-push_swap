@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	ft_find_pivot(t_list **list, int c)
+int	ft_find_pivot(t_push **list, int c)
 {
 	int		*array;
 	int		n;
@@ -30,9 +30,9 @@ int	ft_find_pivot(t_list **list, int c)
 	return (n);
 }
 
-int	ft_implement_rotate(t_list **stack_a, int pivot)
+int	ft_implement_rotate(t_push **stack_a, int pivot)
 {
-	t_list	*nav;
+	t_push	*nav;
 
 	nav = *stack_a;
 	while (nav != NULL)
@@ -51,10 +51,10 @@ int	ft_compare(int a, int b)
 	return (0);
 }
 
-int	*ft_create_array(t_list **list, int count)
+int	*ft_create_array(t_push **list, int count)
 {
 	int		*stack;
-	t_list	*nav;
+	t_push	*nav;
 	int		i;
 
 	nav = *list;

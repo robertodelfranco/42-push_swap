@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void	ft_call_algorithm(t_list **stack_a, int c)
+void	ft_call_algorithm(t_push **stack_a, int c)
 {
-	t_list		*stack_b;
+	t_push		*stack_b;
 	t_counters	counters;
 
 	stack_b = NULL;
@@ -27,7 +27,7 @@ void	ft_call_algorithm(t_list **stack_a, int c)
 	 	ft_bigger_algo(stack_a, &stack_b, c);
 }
 
-void	ft_manualsort_a(t_list **stack, int c)
+void	ft_manualsort_a(t_push **stack, int c)
 {
 	while (!ft_is_sorted(stack))
 	{
@@ -46,7 +46,7 @@ void	ft_manualsort_a(t_list **stack, int c)
 	}
 }
 
-void	ft_manualsort_b(t_list **stack, int c)
+void	ft_manualsort_b(t_push **stack, int c)
 {
 	while (!ft_reverse_sorted(stack))
 	{
@@ -85,7 +85,7 @@ void	ft_bubblesort(int	*list, int c)
 	}
 }
 
-void	ft_quicksort(t_list **stack_a, t_list **stack_b,
+void	ft_quicksort(t_push **stack_a, t_push **stack_b,
 		int size, t_counters *counter)
 {
 	int		pivot;

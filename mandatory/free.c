@@ -25,9 +25,9 @@ void	ft_free(char **ptr_matrix, int j)
 	free(ptr_matrix);
 }
 
-void	ft_clear_list(t_list **lst)
+void	ft_clear_list(t_push **lst)
 {
-	t_list	*nav;
+	t_push	*nav;
 
 	nav = NULL;
 	while (*lst != NULL)
