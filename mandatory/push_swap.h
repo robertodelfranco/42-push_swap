@@ -16,11 +16,22 @@
 # include "../current_lib/Includes/libft.h"
 # include "../current_lib/Includes/ft_printf_bonus.h"
 # include "../current_lib/Includes/get_next_line_bonus.h"
+# include "limits.h"
 
 typedef struct s_counters
 {
 	int	count;
 }				t_counters;
+
+typedef struct s_push
+{
+	int				nb;
+	int				cur_position;
+	int				price;
+	struct s_push	*next;
+	struct s_push	*prev;
+	struct s_push	*target;
+}				t_push;
 
 void	ft_reverse(t_list **stack);
 void	ft_reverse_a(t_list **stack_a);
@@ -63,5 +74,7 @@ void	ft_bubblesort(int *list, int c);
 int		ft_implement_rotate(t_list **stack_a, int pivot);
 int		ft_find_pivot(t_list **list, int c);
 int		ft_compare(int a, int b);
+
+void	ft_bigger_algo(t_list **stack_a, t_list **stack_b, int size);
 
 #endif

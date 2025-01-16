@@ -21,8 +21,10 @@ void	ft_call_algorithm(t_list **stack_a, int c)
 	counters.count = 0;
 	if (c < 4)
 		ft_manualsort_a(stack_a, c);
-	else
+	else if (c < 7)
 		ft_quicksort(stack_a, &stack_b, c, &counters);
+	else
+	 	ft_bigger_algo(stack_a, &stack_b, c);
 }
 
 void	ft_manualsort_a(t_list **stack, int c)
@@ -41,7 +43,7 @@ void	ft_manualsort_a(t_list **stack, int c)
 			else
 				ft_reverse_a(stack);
 		}
-	}	
+	}
 }
 
 void	ft_manualsort_b(t_list **stack, int c)

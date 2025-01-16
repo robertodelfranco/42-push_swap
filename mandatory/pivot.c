@@ -50,3 +50,21 @@ int	ft_compare(int a, int b)
 		return (1);
 	return (0);
 }
+
+int	*ft_create_array(t_list **list, int count)
+{
+	int		*stack;
+	t_list	*nav;
+	int		i;
+
+	nav = *list;
+	stack = (int *)malloc(sizeof(int) * count);
+	i = 0;
+	while (nav != NULL)
+	{
+		stack[i] = nav->nb;
+		nav = nav->next;
+		i++;
+	}
+	return (stack);
+}

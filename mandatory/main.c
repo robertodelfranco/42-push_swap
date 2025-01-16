@@ -15,16 +15,14 @@
 int	main(int c, char **v)
 {
 	int	ent;
-	int	val;
 
 	ent = 0;
-	val = 0;
 	if (c > 1)
 	{
 		if (c == 2)
-			val = ft_validate(&c, ft_split(&v[1][0], ' ', &ent), ent);
+			ft_validate(&c, ft_split(&v[1][0], ' ', &ent), ent);
 		else
-			val = ft_validate(&c, &v[1], ent);
+			ft_validate(&c, &v[1], ent);
 	}
 	return (0);
 }

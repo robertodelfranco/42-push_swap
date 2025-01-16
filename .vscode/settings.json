@@ -4,5 +4,10 @@
 		"libft.h": "c",
 		"get_next_line_bonus.h": "c",
 		"push_swap.h": "c"
-	}
+	},
+	"cSpell.words": [
+		"libft",
+		"lstadd",
+		"lstnew"
+	]
 }

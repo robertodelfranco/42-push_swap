@@ -11,3 +11,10 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// check movements of push that has to contain prev pointer
+
+void	ft_bigger_algo(t_list **stack_a, t_list **stack_b, int size)
+{
+	
+}
