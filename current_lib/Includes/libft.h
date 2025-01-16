@@ -63,6 +63,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+long	ft_atol(char *str);
 t_list	*ft_lstnew(int content);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstsecond_to_last(t_list *lst);

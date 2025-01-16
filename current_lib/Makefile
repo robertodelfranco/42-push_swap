@@ -18,6 +18,7 @@ SRCS		=	./libft/ft_isalpha.c \
 				./libft/ft_strdup.c \
 				./libft/ft_calloc.c \
 				./libft/ft_atoi.c \
+				./libft/ft_atol.c \
 				./libft/ft_strlcpy.c \
 				./libft/ft_strlcat.c \
 				./libft/ft_memset.c \
