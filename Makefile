@@ -9,7 +9,6 @@ HEADERS		=	-I $(current_lib)/Includes
 
 SRCS		=	./mandatory/main.c \
 				./mandatory/algorithms.c \
-				./mandatory/algorithms_utils.c \
 				./mandatory/free.c \
 				./mandatory/list.c \
 				./mandatory/movements.c \
@@ -17,6 +16,7 @@ SRCS		=	./mandatory/main.c \
 				./mandatory/op_reverse.c \
 				./mandatory/op_rotate.c \
 				./mandatory/op_swap.c \
+				./mandatory/pivot.c \
 				./mandatory/validation.c
 
 OBJS		=	${SRCS:.c=.o}
