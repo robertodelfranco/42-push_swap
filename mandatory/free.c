@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:00:49 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/20 15:59:22 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/17 09:10:33 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,31 @@ void	ft_free(char **ptr_matrix, int j)
 void	ft_clear_list(t_push **lst)
 {
 	t_push	*nav;
+	t_push	*tmp;
 
-	nav = NULL;
-	while (*lst != NULL)
+	if (!lst)
+		return ;
+	nav = *lst;
+	while (nav)
 	{
-		nav = (*lst)->next;
-		free(*lst);
-		*lst = nav;
+		tmp = nav->next;
+		free(nav);
+		nav = tmp;
 	}
+	*lst = NULL;
+}
+
+int	ft_listsize(t_push *lst)
+{
+	t_push	*ptr;
+	int		i;
+
+	i = 0;
+	ptr = lst;
+	while (ptr != NULL)
+	{
+		ptr = ptr->next;
+		i++;
+	}
+	return (i);
 }

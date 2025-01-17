@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:54:12 by rdel-fra          #+#    #+#             */
-/*   Updated: 2025/01/15 14:27:09 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/17 09:10:52 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	ft_swap_a(t_push **stack_a);
 void	ft_swap_b(t_push **stack_b);
 void	ft_swap_ss(t_push **stack_a, t_push **stack_b);
 
+int		ft_listsize(t_push *lst);
 void	ft_clear_list(t_push **lst);
 void	ft_free(char **ptr_matrix, int j);
 
@@ -63,7 +64,9 @@ int		ft_validate(int *c, char **v, int ent);
 
 t_push	*ft_create_list(int count, char **v, int ent);
 t_push	*ft_second_to_last(t_push *lst);
+t_push	*ft_newnode(int content);
 t_push	*ft_last(t_push *lst);
+void	ft_add_back(t_push **lst, t_push *new);
 
 void	ft_quicksort(t_push **stack_a, t_push **stack_b,
 			int c, t_counters *counter);

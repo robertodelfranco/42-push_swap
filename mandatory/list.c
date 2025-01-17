@@ -6,14 +6,11 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 13:52:04 by rdel-fra          #+#    #+#             */
-/*   Updated: 2025/01/15 14:26:00 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/17 09:08:57 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static t_push	*ft_newnode(int content);
-static void	ft_add_back(t_push **lst, t_push *new);
 
 t_push	*ft_create_list(int count, char **v, int ent)
 {
@@ -42,11 +39,11 @@ t_push	*ft_create_list(int count, char **v, int ent)
 	return (stack_a);
 }
 
-static t_push	*ft_newnode(int content)
+t_push	*ft_newnode(int content)
 {
 	t_push	*new_node;
 
-	new_node = (t_push *)malloc(sizeof(struct s_list));
+	new_node = (t_push *)malloc(sizeof(struct s_push));
 	if (!new_node)
 		return (NULL);
 	(*new_node).nb = content;
@@ -54,7 +51,7 @@ static t_push	*ft_newnode(int content)
 	return (new_node);
 }
 
-static void	ft_add_back(t_push **lst, t_push *new)
+void	ft_add_back(t_push **lst, t_push *new)
 {
 	t_push	*nav;
 
@@ -77,7 +74,7 @@ t_push	*ft_second_to_last(t_push *lst)
 	int		i;
 
 	nav = lst;
-	i = ft_lstsize((t_list *)lst);
+	i = ft_listsize(lst);
 	while (i > 2)
 	{
 		nav = (*nav).next;
@@ -92,7 +89,7 @@ t_push	*ft_last(t_push *lst)
 	int		i;
 
 	nav = lst;
-	i = ft_lstsize((t_list *)lst);
+	i = ft_listsize(lst);
 	while (i > 1)
 	{
 		nav = (*nav).next;

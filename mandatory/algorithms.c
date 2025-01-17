@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 16:18:23 by rdel-fra          #+#    #+#             */
-/*   Updated: 2025/01/15 14:30:21 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/17 09:02:34 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	ft_call_algorithm(t_push **stack_a, int c)
 		ft_manualsort_a(stack_a, c);
 	else if (c < 7)
 		ft_quicksort(stack_a, &stack_b, c, &counters);
-	else
-	 	ft_bigger_algo(stack_a, &stack_b, c);
+	// else
+	// 	ft_bigger_algo(stack_a, &stack_b, c);
 }
 
 void	ft_manualsort_a(t_push **stack, int c)

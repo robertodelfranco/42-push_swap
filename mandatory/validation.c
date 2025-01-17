@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:58:59 by rdel-fra          #+#    #+#             */
-/*   Updated: 2025/01/15 14:30:54 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/17 09:17:45 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ int	ft_validate(int *c, char **v, int ent)
 		return (ft_printf("Error\n"), 0);
 	if (!ft_check_numbers(v) && ent == 1)
 		return (ft_free(v, count), ft_printf("Error\n"), 0);
-	else if (!ft_check_numbers(v))
+	if (!ft_check_numbers(v))
 		return (ft_printf("Error\n"), 0);
 	start = ft_create_list(count, v, ent);
+	if (!start && ent == 1)
+		return (ft_free(v, count), 0);
 	if (!start)
 		return (0);
 	ft_call_algorithm(&start, count);
