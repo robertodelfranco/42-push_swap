@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 13:49:21 by rdel-fra          #+#    #+#             */
-/*   Updated: 2025/01/17 16:34:22 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/17 16:38:52 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_call_algorithms(t_push **stack_a, int c)
 	}
 	else
 		ft_algorithm(stack_a, &stack_b);
+}
 	// t_push *print;
 	// print = *stack_a;
 	// while (print)
@@ -39,7 +40,6 @@ void	ft_call_algorithms(t_push **stack_a, int c)
 	// 	ft_printf("%d\n", print->nb);
 	// 	print = print->next;
 	// }
-}
 
 void	ft_algorithm(t_push **stack_a, t_push **stack_b)
 {
