@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 16:18:23 by rdel-fra          #+#    #+#             */
-/*   Updated: 2025/01/17 09:02:34 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/17 12:10:34 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,14 @@ void	ft_call_algorithm(t_push **stack_a, int c)
 	if (c < 4)
 		ft_manualsort_a(stack_a, c);
 	else if (c < 7)
+	{
 		ft_quicksort(stack_a, &stack_b, c, &counters);
+		while (counters.count > 0)
+		{
+			ft_push_a(&stack_b, stack_a);
+			counters.count -= 1;
+		}
+	}
 	// else
 	// 	ft_bigger_algo(stack_a, &stack_b, c);
 }
@@ -100,15 +107,16 @@ void	ft_quicksort(t_push **stack_a, t_push **stack_b,
 			ft_push_b(stack_a, stack_b);
 			counter->count += 1;
 		}
+		else if (ft_last(*stack_a)->nb < pivot)
+		{
+			ft_reverse_a(stack_a);
+			ft_push_b(stack_a, stack_b);
+			counter->count += 1;
+		}
 		else if (!ft_implement_rotate(stack_a, pivot))
 			ft_rotate_a(stack_a);
 		i++;
 	}
 	ft_manualsort_a(stack_a, size - counter->count);
 	ft_manualsort_b(stack_b, counter->count);
-	while (counter->count > 0)
-	{
-		ft_push_a(stack_b, stack_a);
-		counter->count -= 1;
-	}
 }

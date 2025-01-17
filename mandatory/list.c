@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 13:52:04 by rdel-fra          #+#    #+#             */
-/*   Updated: 2025/01/17 09:08:57 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/17 12:02:23 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,17 @@ t_push	*ft_newnode(int content)
 		return (NULL);
 	(*new_node).nb = content;
 	(*new_node).next = NULL;
+	(*new_node).prev = NULL;
+	(*new_node).price = 0;
+	(*new_node).cheapest = 0;
+	(*new_node).cur_position = 0;
+	(*new_node).target = NULL;
 	return (new_node);
 }
 
 void	ft_add_back(t_push **lst, t_push *new)
 {
-	t_push	*nav;
+	t_push	*last;
 
 	if (!lst || !new)
 		return ;
@@ -62,10 +67,12 @@ void	ft_add_back(t_push **lst, t_push *new)
 		*lst = new;
 		return ;
 	}
-	nav = *lst;
-	while ((*nav).next != NULL)
-		nav = (*nav).next;
-	(*nav).next = new;
+	else
+	{
+		last = ft_last(*lst);
+		last->next = new;
+		new->prev = last;
+	}
 }
 
 t_push	*ft_second_to_last(t_push *lst)

@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:32:30 by rdel-fra          #+#    #+#             */
-/*   Updated: 2025/01/17 10:48:26 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/17 12:03:40 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_price(t_push *stack_a, t_push *stack_b, int pivot)
 		stack_b->price = stack_b->cur_position;
 		if (stack_b > pivot)
 			stack_b->price = len_b - stack_b->cur_position;
-		if (stack_b <= pivot)	
+		if (stack_b <= pivot)
 			stack_b->price += stack_b->target->cur_position;
 		else
 			stack_b->price += len_a - stack_b->target->cur_position;
