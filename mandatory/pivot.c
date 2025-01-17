@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithms_utils.c                                 :+:      :+:    :+:   */
+/*   pivot.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:06:03 by rdel-fra          #+#    #+#             */
-/*   Updated: 2025/01/15 14:27:23 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/17 16:22:14 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,20 @@ int	*ft_create_array(t_push **list, int count)
 		i++;
 	}
 	return (stack);
+}
+
+int	ft_reverse_sorted(t_push **stack)
+{
+	t_push	*nav;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return (1);
+	nav = *stack;
+	while (nav->next != NULL)
+	{
+		if (nav->nb < nav->next->nb)
+			return (0);
+		nav = nav->next;
+	}
+	return (1);
 }

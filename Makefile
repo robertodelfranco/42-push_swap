@@ -8,16 +8,17 @@ LIB			=	$(LIBFT)/libft.a
 HEADERS		=	-I $(current_lib)/Includes
 
 SRCS		=	./mandatory/main.c \
-				./mandatory/algorithms.c \
+				./mandatory/algorithm.c \
 				./mandatory/free.c \
-				./mandatory/list.c \
-				./mandatory/movements.c \
+				./mandatory/list_manipulation.c \
+				./mandatory/node_set_values.c \
+				./mandatory/node_utils.c \
 				./mandatory/op_push.c \
 				./mandatory/op_reverse.c \
 				./mandatory/op_rotate.c \
 				./mandatory/op_swap.c \
 				./mandatory/pivot.c \
-				./mandatory/validation.c
+				./mandatory/sort_six.c
 
 OBJS		=	${SRCS:.c=.o}
 OBJS_BONUS	=	${SRCS_BONUS:.c=.o}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.c                                             :+:      :+:    :+:   */
+/*   list_manipulation.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 13:52:04 by rdel-fra          #+#    #+#             */
-/*   Updated: 2025/01/17 12:02:23 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/17 16:25:49 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ t_push	*ft_newnode(int content)
 	(*new_node).next = NULL;
 	(*new_node).prev = NULL;
 	(*new_node).price = 0;
+	(*new_node).upper = 0;
 	(*new_node).cheapest = 0;
 	(*new_node).cur_position = 0;
 	(*new_node).target = NULL;
