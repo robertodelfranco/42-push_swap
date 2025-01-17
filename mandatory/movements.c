@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:43:46 by rdel-fra          #+#    #+#             */
-/*   Updated: 2024/12/23 14:35:28 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/17 11:49:11 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,58 +14,72 @@
 
 void	ft_swap(t_push **stack)
 {
-	t_push	*start;
-	t_push	*second;
+	int	len;
 
-	if (!stack || !*stack || !(*stack)->next)
+	len = ft_listsize(*stack);
+	if (stack == NULL || *stack == NULL || len < 2)
 		return ;
-	start = *stack;
-	second = (*stack)->next;
-	start->next = second->next;
-	second->next = start;
-	*stack = second;
+	*stack = (*stack)->next;
+	(*stack)->prev->prev = *stack;
+	(*stack)->prev->next = (*stack)->next;
+	if ((*stack)->next)
+		(*stack)->next->prev = (*stack)->prev;
+	(*stack)->next = (*stack)->prev;
+	(*stack)->prev = NULL;
 }
 
 void	ft_push(t_push **push, t_push **stack)
 {
 	t_push	*temp;
 
-	temp = (*push)->next;
-	if (*stack != NULL)
+	if (*push == NULL)
+		return ;
+	temp = *push;
+	*push = (*push)->next;
+	if (*push)
+		(*push)->prev = NULL;
+	temp->prev = NULL;
+	if (*stack == NULL)
 	{
-		(*push)->next = *stack;
-		*stack = *push;
+		*stack = temp;
+		temp->next = NULL;
 	}
 	else
 	{
-		*stack = *push;
-		(*stack)->next = NULL;
+		temp->next = *stack;
+		temp->next->prev = temp;
+		*stack = temp;
 	}
-	*push = temp;
 }
 
 void	ft_rotate(t_push **stack)
 {
-	t_push	*start;
 	t_push	*last;
+	int		len;
 
-	start = *stack;
+	len = ft_listsize(*stack);
+	if (stack == NULL || *stack == NULL || len < 2)
+		return ;
 	last = ft_last(*stack);
-	*stack = start->next;
-	last->next = start;
-	start->next = NULL;
+	last->next = *stack;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	last->next->prev = last;
+	last->next->next = NULL;
 }
 
 void	ft_reverse(t_push **stack)
 {
-	t_push	*second_to_last;
-	t_push	*start;
 	t_push	*last;
+	int		len;
 
-	start = *stack;
-	second_to_last = ft_second_to_last(*stack);
-	last = second_to_last->next;
-	second_to_last->next = NULL;
-	last->next = start;
+	len = ft_listsize(*stack);
+	if (stack == NULL || *stack == NULL || len < 2)
+		return ;
+	last = ft_last(*stack);
+	last->prev->next = NULL;
+	last->next = *stack;
+	last->prev = NULL;
 	*stack = last;
+	last->next->prev = last;
 }

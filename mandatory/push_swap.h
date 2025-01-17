@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:54:12 by rdel-fra          #+#    #+#             */
-/*   Updated: 2025/01/17 09:10:52 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/17 10:41:30 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ typedef struct s_counters
 typedef struct s_push
 {
 	int				nb;
-	int				cur_position;
 	int				price;
+	int				cheapest;
+	int				cur_position;
 	struct s_push	*next;
 	struct s_push	*prev;
 	struct s_push	*target;
