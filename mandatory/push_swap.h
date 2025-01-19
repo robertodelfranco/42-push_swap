@@ -93,6 +93,7 @@ void	ft_cheapest(t_push *stack_b);
 
 t_push	*ft_find_cheapest(t_push *stack);
 t_push	*ft_find_smallest(t_push *stack);
+void	ft_price_a(t_push *stack_a);
 
 void	ft_finish_rotation(t_push **stack, t_push *cheapest, char c);
 void	ft_call_algorithms(t_push **stack_a, int counter);

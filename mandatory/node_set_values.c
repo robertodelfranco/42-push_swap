@@ -52,9 +52,9 @@ void	ft_price(t_push *stack_a, t_push *stack_b)
 		if (stack_b->upper == 0)
 			stack_b->price = len_b - stack_b->cur_position;
 		if (stack_b->upper == 1)
-			stack_b->price += stack_b->target->cur_position;
+			stack_b->price += stack_b->target->price;
 		else
-			stack_b->price += len_a - stack_b->target->cur_position;
+			stack_b->price += stack_b->target->price - (len_a - len_a);
 		stack_b = stack_b->next;
 	}
 }
@@ -90,8 +90,11 @@ void	ft_cheapest(t_push *stack_b)
 	best_value = LONG_MAX;
 	while (stack_b)
 	{
-		if (stack_b->price < best_value)
+		if (stack_b->price <= best_value)
 		{
+			if (stack_b->upper == 1 && stack_b->target->upper == 1
+				&& stack_b->price == best_value)
+				break ;
 			best_value = stack_b->price;
 			best_node = stack_b;
 		}
@@ -105,6 +108,7 @@ void	ft_init(t_push *stack_a, t_push *stack_b)
 	ft_cur_position(stack_a);
 	ft_cur_position(stack_b);
 	ft_target(stack_a, stack_b);
+	ft_price_a(stack_a);
 	ft_price(stack_a, stack_b);
 	ft_cheapest(stack_b);
 }

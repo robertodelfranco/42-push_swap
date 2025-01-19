@@ -42,3 +42,19 @@ t_push	*ft_find_cheapest(t_push *stack)
 	}
 	return (NULL);
 }
+
+void	ft_price_a(t_push *stack_a)
+{
+	int		len_a;
+	t_push	*cur;
+
+	len_a = ft_listsize(stack_a);
+	cur = stack_a;
+	while (cur)
+	{
+		cur->price = cur->cur_position;
+		if (cur->upper == 0)
+			cur->price = len_a - cur->cur_position;
+		cur = cur->next;
+	}
+}
