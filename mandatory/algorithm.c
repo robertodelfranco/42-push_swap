@@ -41,17 +41,38 @@ void	ft_call_algorithms(t_push **stack_a, int c)
 	// 	print = print->next;
 	// }
 
+void	ft_move_a(t_push **b, t_push **a)
+{
+	t_push	*cheapest;
+
+	cheapest = ft_find_cheapest(*a);
+	if (cheapest->upper == 1 && cheapest->target->upper == 1)
+		ft_rotate_both(b, a, cheapest);
+	else if (cheapest->upper == 0 && cheapest->target->upper == 0)
+		ft_reverse_rotate_both(b, a, cheapest);
+	ft_finish_rotation(a, cheapest, 'a');
+	ft_finish_rotation(b, cheapest->target, 'b');
+	ft_pb(b, a);
+}
+
+void	ft_push_to_b(t_push **stack_a, t_push **stack_b)
+{
+	if (ft_listsize(*stack_a) > 3 && ft_is_sorted(stack_a) == 0)
+		ft_pb(stack_b, stack_a);
+	if (ft_listsize(*stack_a) > 3 && ft_is_sorted(stack_a) == 0)
+		ft_pb(stack_b, stack_a);
+	while (ft_listsize(*stack_a) > 3 && ft_is_sorted(stack_a) == 0)
+	{
+		ft_init_a(*stack_a, *stack_b);
+		ft_move_a(stack_b, stack_a);
+	}
+}
+
 void	ft_algorithm(t_push **stack_a, t_push **stack_b)
 {
 	t_push	*smallest;
-	int		len_a;
 
-	len_a = ft_listsize(*stack_a);
-	while (len_a > 3)
-	{
-		ft_pb(stack_b, stack_a);
-		len_a--;
-	}
+	ft_push_to_b(stack_a, stack_b);
 	ft_manualsort_a(stack_a);
 	while (*stack_b)
 	{

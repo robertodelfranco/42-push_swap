@@ -51,8 +51,8 @@ int	ft_listsize(t_push *lst)
 	ptr = lst;
 	while (ptr != NULL)
 	{
-		ptr = ptr->next;
 		i++;
+		ptr = ptr->next;
 	}
 	return (i);
 }

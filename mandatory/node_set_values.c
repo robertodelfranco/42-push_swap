@@ -39,23 +39,102 @@ void	ft_target(t_push *stack_a, t_push *stack_b)
 	}
 }
 
+t_push	*ft_find_largest(t_push *stack)
+{
+	t_push	*largest;
+	t_push	*cur;
+
+	if (stack == NULL)
+		return (NULL);
+	cur = stack;
+	largest = stack;
+	while (cur)
+	{
+		if (cur->nb > largest->nb)
+			largest = cur;
+		cur = cur->next;
+	}
+	return (largest);
+}
+
+void	ft_target_b(t_push *stack_a, t_push *stack_b)
+{
+	long	best_match;
+	t_push	*target;
+	t_push	*cur_a;
+
+	while (stack_a)
+	{
+		best_match = LONG_MIN;
+		cur_a = stack_b;
+		while (cur_a)
+		{
+			if (cur_a->nb < stack_a->nb && cur_a->nb > best_match)
+			{
+				best_match = cur_a->nb;
+				target = cur_a;
+			}
+			cur_a = cur_a->next;
+		}
+		if (best_match == LONG_MIN)
+			stack_a->target = ft_find_largest(stack_b);
+		else
+			stack_a->target = target;
+		stack_a = stack_a->next;
+	}
+}
+
+int	ft_greater(int num1, int num2)
+{
+	if (num1 > num2)
+		return (num1);
+	else
+		return (num2);
+}
+
 void	ft_price(t_push *stack_a, t_push *stack_b)
 {
-	int		len_a;
-	int		len_b;
+	t_push	*trav;
 
-	len_a = ft_listsize(stack_a);
-	len_b = ft_listsize(stack_b);
-	while (stack_b)
+	trav = stack_b;
+	while (trav)
 	{
-		stack_b->price = stack_b->cur_position;
-		if (stack_b->upper == 0)
-			stack_b->price = len_b - stack_b->cur_position;
-		if (stack_b->upper == 1)
-			stack_b->price += stack_b->target->price;
+		if (trav->cur_position <= (ft_listsize(stack_b) - 1) / 2
+			&& trav->target->cur_position <= (ft_listsize(stack_a) - 1) / 2)
+			trav->price = ft_greater(trav->cur_position, trav->target->cur_position);
+		else if (trav->cur_position > (ft_listsize(stack_b) - 1) / 2
+			&& trav->target->cur_position > (ft_listsize(stack_a) - 1) / 2)
+			trav->price = ft_greater(ft_listsize(stack_b) - trav->cur_position, ft_listsize(stack_a)
+					- trav->target->cur_position);
+		else if (trav->cur_position <= (ft_listsize(stack_b) - 1) / 2
+			&& trav->target->cur_position > (ft_listsize(stack_a) - 1) / 2)
+			trav->price = trav->cur_position + ft_listsize(stack_a) - trav->target->cur_position;
 		else
-			stack_b->price += stack_b->target->price - (len_a - len_a);
-		stack_b = stack_b->next;
+			trav->price = ft_listsize(stack_b) - trav->cur_position + trav->target->cur_position;
+		trav = trav->next;
+	}
+}
+
+void	ft_price_a(t_push *stack_a, t_push *stack_b)
+{
+	t_push	*trav;
+
+	trav = stack_a;
+	while (trav)
+	{
+		if (trav->cur_position <= (ft_listsize(stack_a) - 1) / 2
+			&& trav->target->cur_position <= (ft_listsize(stack_b) - 1) / 2)
+			trav->price = ft_greater(trav->cur_position, trav->target->cur_position);
+		else if (trav->cur_position > (ft_listsize(stack_a) - 1) / 2
+			&& trav->target->cur_position > (ft_listsize(stack_b) - 1) / 2)
+			trav->price = ft_greater(ft_listsize(stack_a) - trav->cur_position, ft_listsize(stack_b)
+					- trav->target->cur_position);
+		else if (trav->cur_position <= (ft_listsize(stack_a) - 1) / 2
+			&& trav->target->cur_position > (ft_listsize(stack_b) - 1) / 2)
+			trav->price = trav->cur_position + ft_listsize(stack_b) - trav->target->cur_position;
+		else
+			trav->price = ft_listsize(stack_a) - trav->cur_position + trav->target->cur_position;
+		trav = trav->next;
 	}
 }
 
@@ -67,7 +146,7 @@ void	ft_cur_position(t_push *stack)
 	if (stack == NULL)
 		return ;
 	pos = 0;
-	mid = ft_listsize(stack) / 2;
+	mid = (ft_listsize(stack) - 1) / 2;
 	while (stack)
 	{
 		stack->cur_position = pos;
@@ -90,11 +169,8 @@ void	ft_cheapest(t_push *stack_b)
 	best_value = LONG_MAX;
 	while (stack_b)
 	{
-		if (stack_b->price <= best_value)
+		if (stack_b->price < best_value)
 		{
-			if (stack_b->upper == 1 && stack_b->target->upper == 1
-				&& stack_b->price == best_value)
-				break ;
 			best_value = stack_b->price;
 			best_node = stack_b;
 		}
@@ -108,7 +184,15 @@ void	ft_init(t_push *stack_a, t_push *stack_b)
 	ft_cur_position(stack_a);
 	ft_cur_position(stack_b);
 	ft_target(stack_a, stack_b);
-	ft_price_a(stack_a);
 	ft_price(stack_a, stack_b);
 	ft_cheapest(stack_b);
+}
+
+void	ft_init_a(t_push *stack_a, t_push *stack_b)
+{
+	ft_cur_position(stack_a);
+	ft_cur_position(stack_b);
+	ft_target_b(stack_a, stack_b);
+	ft_price_a(stack_a, stack_b);
+	ft_cheapest(stack_a);
 }

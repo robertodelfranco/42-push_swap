@@ -91,13 +91,16 @@ void	ft_init(t_push *stack_a, t_push *stack_b);
 void	ft_cur_position(t_push *stack);
 void	ft_cheapest(t_push *stack_b);
 
+int		ft_match_price(t_push *stack, int len);
 t_push	*ft_find_cheapest(t_push *stack);
 t_push	*ft_find_smallest(t_push *stack);
-void	ft_price_a(t_push *stack_a);
 
 void	ft_finish_rotation(t_push **stack, t_push *cheapest, char c);
 void	ft_call_algorithms(t_push **stack_a, int counter);
 void	ft_algorithm(t_push **stack_a, t_push **stack_b);
 void	ft_move(t_push **stack_a, t_push **stack_b);
+
+void	ft_init_a(t_push *stack_a, t_push *stack_b);
+void	ft_price_a(t_push *stack_a, t_push *stack_b);
 
 #endif
