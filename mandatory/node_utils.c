@@ -30,6 +30,24 @@ t_push	*ft_find_smallest(t_push *stack)
 	return (smallest);
 }
 
+t_push	*ft_find_largest(t_push *stack)
+{
+	t_push	*largest;
+	t_push	*cur;
+
+	if (stack == NULL)
+		return (NULL);
+	cur = stack;
+	largest = stack;
+	while (cur)
+	{
+		if (cur->nb > largest->nb)
+			largest = cur;
+		cur = cur->next;
+	}
+	return (largest);
+}
+
 t_push	*ft_find_cheapest(t_push *stack)
 {
 	if (stack == NULL)
@@ -43,14 +61,42 @@ t_push	*ft_find_cheapest(t_push *stack)
 	return (NULL);
 }
 
-int	ft_match_price(t_push *stack, int len)
+t_push	*ft_find_highest(t_push *stack)
 {
-	int price;
+	int		highest;
+	t_push	*highest_node;
 
-	price = 0;
-	if (stack->target->upper == 1)
-		price = stack->target->cur_position;
-	else
-		price = len - stack->target->cur_position;
-	return (price);
+	if (NULL == stack)
+		return (NULL);
+	highest = INT_MIN;
+	while (stack)
+	{
+		if (stack->nb > highest)
+		{
+			highest = stack->nb;
+			highest_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (highest_node);
+}
+
+void	ft_set_cheapest(t_push *stack_b)
+{
+	long	best_value;
+	t_push	*best_node;
+
+	if (stack_b == NULL)
+		return ;
+	best_value = LONG_MAX;
+	while (stack_b)
+	{
+		if (stack_b->price < best_value)
+		{
+			best_value = stack_b->price;
+			best_node = stack_b;
+		}
+		stack_b = stack_b->next;
+	}
+	best_node->cheapest = 1;
 }
