@@ -76,21 +76,6 @@ void	ft_add_back(t_push **lst, t_push *new)
 	}
 }
 
-t_push	*ft_second_to_last(t_push *lst)
-{
-	t_push	*nav;
-	int		i;
-
-	nav = lst;
-	i = ft_listsize(lst);
-	while (i > 2)
-	{
-		nav = (*nav).next;
-		i--;
-	}
-	return (nav);
-}
-
 t_push	*ft_last(t_push *lst)
 {
 	t_push	*nav;
@@ -104,4 +89,19 @@ t_push	*ft_last(t_push *lst)
 		i--;
 	}
 	return (nav);
+}
+
+int	ft_listsize(t_push *lst)
+{
+	t_push	*ptr;
+	int		i;
+
+	i = 0;
+	ptr = lst;
+	while (ptr != NULL)
+	{
+		i++;
+		ptr = ptr->next;
+	}
+	return (i);
 }
