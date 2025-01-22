@@ -24,13 +24,6 @@ void	ft_swap_b(t_push **stack_b)
 	ft_printf("sb\n");
 }
 
-void	ft_swap_ss(t_push **stack_a, t_push **stack_b)
-{
-	ft_swap(stack_a);
-	ft_swap(stack_b);
-	ft_printf("ss\n");
-}
-
 void	ft_swap(t_push **stack)
 {
 	int	len;
