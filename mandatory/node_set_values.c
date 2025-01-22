@@ -39,24 +39,6 @@ void	ft_target(t_push *stack_a, t_push *stack_b)
 	}
 }
 
-t_push	*ft_find_largest(t_push *stack)
-{
-	t_push	*largest;
-	t_push	*cur;
-
-	if (stack == NULL)
-		return (NULL);
-	cur = stack;
-	largest = stack;
-	while (cur)
-	{
-		if (cur->nb > largest->nb)
-			largest = cur;
-		cur = cur->next;
-	}
-	return (largest);
-}
-
 void	ft_target_b(t_push *stack_a, t_push *stack_b)
 {
 	long	best_match;
@@ -84,57 +66,28 @@ void	ft_target_b(t_push *stack_a, t_push *stack_b)
 	}
 }
 
-int	ft_greater(int num1, int num2)
-{
-	if (num1 > num2)
-		return (num1);
-	else
-		return (num2);
-}
-
 void	ft_price(t_push *stack_a, t_push *stack_b)
 {
-	t_push	*trav;
+	t_push	*tr;
 
-	trav = stack_b;
-	while (trav)
+	tr = stack_b;
+	while (tr)
 	{
-		if (trav->cur_position <= (ft_listsize(stack_b) - 1) / 2
-			&& trav->target->cur_position <= (ft_listsize(stack_a) - 1) / 2)
-			trav->price = ft_greater(trav->cur_position, trav->target->cur_position);
-		else if (trav->cur_position > (ft_listsize(stack_b) - 1) / 2
-			&& trav->target->cur_position > (ft_listsize(stack_a) - 1) / 2)
-			trav->price = ft_greater(ft_listsize(stack_b) - trav->cur_position, ft_listsize(stack_a)
-					- trav->target->cur_position);
-		else if (trav->cur_position <= (ft_listsize(stack_b) - 1) / 2
-			&& trav->target->cur_position > (ft_listsize(stack_a) - 1) / 2)
-			trav->price = trav->cur_position + ft_listsize(stack_a) - trav->target->cur_position;
+		if (tr->cur_position <= (ft_listsize(stack_b) - 1) / 2
+			&& tr->target->cur_position <= (ft_listsize(stack_a) - 1) / 2)
+			tr->price = ft_greater(tr->cur_position, tr->target->cur_position);
+		else if (tr->cur_position > (ft_listsize(stack_b) - 1) / 2
+			&& tr->target->cur_position > (ft_listsize(stack_a) - 1) / 2)
+			tr->price = ft_greater(ft_listsize(stack_b) - tr->cur_position,
+					ft_listsize(stack_a) - tr->target->cur_position);
+		else if (tr->cur_position <= (ft_listsize(stack_b) - 1) / 2
+			&& tr->target->cur_position > (ft_listsize(stack_a) - 1) / 2)
+			tr->price = tr->cur_position + ft_listsize(stack_a)
+				- tr->target->cur_position;
 		else
-			trav->price = ft_listsize(stack_b) - trav->cur_position + trav->target->cur_position;
-		trav = trav->next;
-	}
-}
-
-void	ft_price_a(t_push *stack_a, t_push *stack_b)
-{
-	t_push	*trav;
-
-	trav = stack_a;
-	while (trav)
-	{
-		if (trav->cur_position <= (ft_listsize(stack_a) - 1) / 2
-			&& trav->target->cur_position <= (ft_listsize(stack_b) - 1) / 2)
-			trav->price = ft_greater(trav->cur_position, trav->target->cur_position);
-		else if (trav->cur_position > (ft_listsize(stack_a) - 1) / 2
-			&& trav->target->cur_position > (ft_listsize(stack_b) - 1) / 2)
-			trav->price = ft_greater(ft_listsize(stack_a) - trav->cur_position, ft_listsize(stack_b)
-					- trav->target->cur_position);
-		else if (trav->cur_position <= (ft_listsize(stack_a) - 1) / 2
-			&& trav->target->cur_position > (ft_listsize(stack_b) - 1) / 2)
-			trav->price = trav->cur_position + ft_listsize(stack_b) - trav->target->cur_position;
-		else
-			trav->price = ft_listsize(stack_a) - trav->cur_position + trav->target->cur_position;
-		trav = trav->next;
+			tr->price = ft_listsize(stack_b) - tr->cur_position
+				+ tr->target->cur_position;
+		tr = tr->next;
 	}
 }
 
@@ -159,40 +112,11 @@ void	ft_cur_position(t_push *stack)
 	}
 }
 
-void	ft_cheapest(t_push *stack_b)
-{
-	long	best_value;
-	t_push	*best_node;
-
-	if (stack_b == NULL)
-		return ;
-	best_value = LONG_MAX;
-	while (stack_b)
-	{
-		if (stack_b->price < best_value)
-		{
-			best_value = stack_b->price;
-			best_node = stack_b;
-		}
-		stack_b = stack_b->next;
-	}
-	best_node->cheapest = 1;
-}
-
-void	ft_init(t_push *stack_a, t_push *stack_b)
-{
-	ft_cur_position(stack_a);
-	ft_cur_position(stack_b);
-	ft_target(stack_a, stack_b);
-	ft_price(stack_a, stack_b);
-	ft_cheapest(stack_b);
-}
-
 void	ft_init_a(t_push *stack_a, t_push *stack_b)
 {
 	ft_cur_position(stack_a);
 	ft_cur_position(stack_b);
 	ft_target_b(stack_a, stack_b);
 	ft_price_a(stack_a, stack_b);
-	ft_cheapest(stack_a);
+	ft_set_cheapest(stack_a);
 }
