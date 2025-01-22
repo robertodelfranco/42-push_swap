@@ -41,18 +41,3 @@ void	ft_clear_list(t_push **lst)
 	}
 	*lst = NULL;
 }
-
-int	ft_listsize(t_push *lst)
-{
-	t_push	*ptr;
-	int		i;
-
-	i = 0;
-	ptr = lst;
-	while (ptr != NULL)
-	{
-		i++;
-		ptr = ptr->next;
-	}
-	return (i);
-}
