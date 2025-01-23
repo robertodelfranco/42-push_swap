@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:53:35 by rheringe          #+#    #+#             */
-/*   Updated: 2025/01/23 12:53:53 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/23 15:52:25 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,18 @@ t_push	*init_push_swap(int argc, char **argv)
 void	init_stacks(t_push *push_swap)
 {
 	size_t	index;
-	int		nb;
+	long	nb;
 
 	index = 0;
 	nb = 0;
 	while (push_swap->argv[index])
 	{
-		nb = ft_atoi(push_swap->argv[index]);
+		nb = ft_atol(push_swap->argv[index]);
+		if (nb > INT_MAX || nb < INT_MIN)
+		{
+			free_and_close(push_swap, EXIT_FAILURE);
+			return  ;
+		}
 		link_node(&push_swap->stack_a, nb);
 		index++;
 	}
