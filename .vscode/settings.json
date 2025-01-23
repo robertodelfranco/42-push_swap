@@ -3,7 +3,8 @@
 		"*.ejs": "html",
 		"libft.h": "c",
 		"get_next_line_bonus.h": "c",
-		"push_swap.h": "c"
+		"push_swap.h": "c",
+		"checker_bonus.h": "c"
 	},
 	"cSpell.words": [
 		"libft",

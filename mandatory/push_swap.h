@@ -13,11 +13,15 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "limits.h"
 # include "../current_lib/Includes/libft.h"
 # include "../current_lib/Includes/ft_printf_bonus.h"
-# include "../current_lib/Includes/get_next_line_bonus.h"
-# include "limits.h"
 
+typedef enum e_bool
+{
+	FALSE,
+	TRUE
+}t_bool;
 typedef struct s_push
 {
 	int				nb;
@@ -60,13 +64,13 @@ void	ft_free(char **ptr_matrix, int j);
 void	ft_clear_list(t_push **lst);
 
 // main //
-int		ft_validate(int *c, char **v, int ent);
+int		ft_validate(int *c, char **v, t_bool ent);
 int		ft_check_numbers(char **str);
 int		ft_check_duplicate(t_push **stack);
 int		ft_is_sorted(t_push **stack);
 
 // list_manipulation //
-t_push	*ft_create_list(int count, char **v, int ent);
+t_push	*ft_create_list(int count, char **v, t_bool ent);
 t_push	*ft_newnode(int content);
 void	ft_add_back(t_push **lst, t_push *new);
 t_push	*ft_last(t_push *lst);

@@ -14,20 +14,25 @@
 
 int	main(int c, char **v)
 {
-	int	ent;
+	t_bool	ent;
 
-	ent = 0;
 	if (c > 1)
 	{
 		if (c == 2)
-			ft_validate(&c, ft_split(&v[1][0], ' ', &ent), ent);
+		{
+			ent = TRUE;
+			ft_validate(&c, ft_split(&v[1][0], ' '), ent);
+		}
 		else
+		{
+			ent = FALSE;
 			ft_validate(&c, &v[1], ent);
+		}
 	}
 	return (0);
 }
 
-int	ft_validate(int *c, char **v, int ent)
+int	ft_validate(int *c, char **v, t_bool ent)
 {
 	t_push	*start;
 	int		count;
@@ -35,7 +40,7 @@ int	ft_validate(int *c, char **v, int ent)
 	start = NULL;
 	*c = ft_ptrlen(v);
 	count = *c;
-	if (!ft_check_numbers(v) && ent == 1)
+	if (!ft_check_numbers(v) && ent == TRUE)
 		return (ft_free(v, count), write(2, "Error\n", 6), 0);
 	if (!ft_check_numbers(v))
 		return (write(2, "Error\n", 6), 0);

@@ -17,14 +17,13 @@ static char	**ft_matrix(int count, size_t *len, int *j, int *flag);
 static char	*ft_alloc(char const *s, char c, int len);
 //static void	ft_free_matrix(char **ptr_matrix, int j);
 
-char	**ft_split(char const *s, char c, int *ent)
+char	**ft_split(char const *s, char c)
 {
 	char	**ptr_matrix;
 	int		flag;
 	size_t	len;
 	int		j;
 
-	*ent = 1;
 	ptr_matrix = ft_matrix(ft_count(s, c), &len, &j, &flag);
 	if (!ptr_matrix)
 		return (NULL);

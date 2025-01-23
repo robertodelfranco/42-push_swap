@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_push	*ft_create_list(int count, char **v, int ent)
+t_push	*ft_create_list(int count, char **v, t_bool ent)
 {
 	t_push	*new_node;
 	t_push	*stack_a;
@@ -30,7 +30,7 @@ t_push	*ft_create_list(int count, char **v, int ent)
 		ft_add_back(&stack_a, new_node);
 		i++;
 	}
-	if (ent == 1)
+	if (ent == TRUE)
 		ft_free(v, count);
 	if (!ft_check_duplicate(&stack_a))
 		return (ft_clear_list(&stack_a), write(2, "Error\n", 6), NULL);

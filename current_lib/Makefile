@@ -44,7 +44,6 @@ SRCS		=	./libft/ft_isalpha.c \
 				./printf/ft_types.c \
 				./printf/ft_flags.c \
 				./gnl/get_next_line_bonus.c \
-				./gnl/get_next_line_utils_bonus.c \
 				./libft/ft_lstnew_bonus.c \
 				./libft/ft_lstadd_front_bonus.c \
 				./libft/ft_lstsize_bonus.c \
