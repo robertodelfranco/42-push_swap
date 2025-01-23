@@ -35,17 +35,11 @@ int	ft_validate(int *c, char **v, int ent)
 	start = NULL;
 	*c = ft_ptrlen(v);
 	count = *c;
-	if (count == 1 && ent == 1)
-		return (ft_free(v, count), ft_printf("Error\n"), 0);
-	if (count == 1)
-		return (ft_printf("Error\n"), 0);
 	if (!ft_check_numbers(v) && ent == 1)
-		return (ft_free(v, count), ft_printf("Error\n"), 0);
+		return (ft_free(v, count), write(2, "Error\n", 6), 0);
 	if (!ft_check_numbers(v))
-		return (ft_printf("Error\n"), 0);
+		return (write(2, "Error\n", 6), 0);
 	start = ft_create_list(count, v, ent);
-	if (!start && ent == 1)
-		return (ft_free(v, count), 0);
 	if (!start)
 		return (0);
 	ft_call_algorithms(&start, count);

@@ -25,7 +25,7 @@ t_push	*ft_create_list(int count, char **v, int ent)
 	{
 		nb = ft_atol(&v[i][0]);
 		if (nb > INT_MAX || nb < INT_MIN)
-			return (ft_clear_list(&stack_a), ft_printf("Error\n"), NULL);
+			return (ft_clear_list(&stack_a), write(2, "Error\n", 6), NULL);
 		new_node = ft_newnode((int)nb);
 		ft_add_back(&stack_a, new_node);
 		i++;
@@ -33,7 +33,7 @@ t_push	*ft_create_list(int count, char **v, int ent)
 	if (ent == 1)
 		ft_free(v, count);
 	if (!ft_check_duplicate(&stack_a))
-		return (ft_clear_list(&stack_a), ft_printf("Error\n"), NULL);
+		return (ft_clear_list(&stack_a), write(2, "Error\n", 6), NULL);
 	if (ft_is_sorted(&stack_a))
 		return (ft_clear_list(&stack_a), NULL);
 	return (stack_a);
