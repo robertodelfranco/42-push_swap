@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:53:35 by rheringe          #+#    #+#             */
-/*   Updated: 2025/01/23 15:52:25 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/23 15:59:28 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	init_stacks(t_push *push_swap)
 		if (nb > INT_MAX || nb < INT_MIN)
 		{
 			free_and_close(push_swap, EXIT_FAILURE);
-			return  ;
+			return ;
 		}
 		link_node(&push_swap->stack_a, nb);
 		index++;
