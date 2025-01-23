@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:22:52 by rheringe          #+#    #+#             */
-/*   Updated: 2025/01/23 12:54:37 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:49:02 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	t_push	*push_swap;
 
 	if (argc == 1)
-		message_error(EXIT_NO_ARGS);
+		message_error(EXIT_SUCCESS);
 	else
 	{
 		push_swap = init_push_swap(argc, argv);

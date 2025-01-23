@@ -6,7 +6,7 @@
 /*   By: rdel-fra <rdel-fra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 12:13:25 by rheringe          #+#    #+#             */
-/*   Updated: 2025/01/23 13:17:52 by rdel-fra         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:48:51 by rdel-fra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include "../current_lib/Includes/ft_printf_bonus.h"
 # include "../current_lib/Includes/get_next_line_bonus.h"
 
-# define EXIT_NO_ARGS -1
 # define EXIT_SUCCESS 0
 # define EXIT_FAILURE 1
 
