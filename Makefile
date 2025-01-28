@@ -7,7 +7,7 @@ LIBFT		=	./current_lib
 
 
 LIB			=	$(LIBFT)/libft.a
-HEADERS		=	-I $(current_lib)/Includes
+HEADERS		=	-I $(LIBFT)/Includes
 
 SRCS		=	./mandatory/algorithm_utils.c \
 				./mandatory/algorithm.c \
