@@ -22,6 +22,7 @@ typedef enum e_bool
 	FALSE,
 	TRUE
 }t_bool;
+
 typedef struct s_push
 {
 	int				nb;
