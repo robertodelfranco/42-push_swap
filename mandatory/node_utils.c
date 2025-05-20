@@ -91,7 +91,7 @@ void	ft_set_cheapest(t_push *stack_b)
 	best_value = LONG_MAX;
 	while (stack_b)
 	{
-		if (stack_b->price <= best_value)
+		if (stack_b->price < best_value)
 		{
 			best_value = stack_b->price;
 			best_node = stack_b;

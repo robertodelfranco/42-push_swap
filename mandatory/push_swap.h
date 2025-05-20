@@ -21,7 +21,7 @@ typedef enum e_bool
 {
 	FALSE,
 	TRUE
-}t_bool;
+}	t_bool;
 
 typedef struct s_push
 {
@@ -33,7 +33,7 @@ typedef struct s_push
 	struct s_push	*next;
 	struct s_push	*prev;
 	struct s_push	*target;
-}				t_push;
+}	t_push;
 
 // op_reverse //
 void	ft_reverse_a(t_push **stack_a);
